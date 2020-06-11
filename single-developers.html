@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SwitchLink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="css/lightbox.min.css" type="text/css">
+    <link rel="stylesheet" href="css/square/blue.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery.bxslider.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css">
+    <link type="text/css" rel="stylesheet" href="css/easy-responsive-tabs.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="css/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/favicon/favicon-16x16.png">
+    <link rel="manifest" href="css/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body>
+
+    <main class="container">
+      <header>
+
+        <nav class="header-navigation-wrapper">
+
+          <div class="header-trim"><img src="images/header-trim.png"></div>
+
+          <div class="header-logo-wrapper">
+            <a href="index.html"><img src="images/switchlink-logo.png" alt="SwitchLink Logo"></a>
+          </div>
+
+          <ul class="header-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li class="hover-dropdown"><a href="#">Solutions<i class="fa fa-angle-down"></i></a>
+              <ul class="dropdown">
+                <div class="dropdown-lists">
+                  <li><a href="payment-gateway.html">Payment Gateway</a></li>
+                  <li class="hover-dropdown-sub"><a href="#">Software Development<i class="fa fa-angle-right"></i></a>
+                  <ul class="dropdown-sub-categories">
+                      <div class="sub-categories-lists">
+                          <li><a href="software-development.html">SAAS</a></li>
+                          <li><a href="software-development.html">On Premise Solutions</a></li>
+                      </div>
+                  </ul>
+                  </li>
+                </div>
+                
+              </ul>
+            </li>
+            <li><a href="for-developers.html" class="active-header-link">For Developers</a></li>
+            <li><a href="contact-us.html">Contact</a></li>
+          </ul>
+
+
+          <div class="header-login-wrapper">
+              
+              <div class="float-log">
+                  <a href="#modal" class="header-login" data-lightbox="">
+                      <figure><img src="images/login-icon.png" alt="SwitchLink LogIn"></figure>
+                      <span>Login</span>
+                    </a>
+        
+                    <a href="#modal1" class="header-signup" data-lightbox="">
+                      <figure><img src="images/signup-icon.png" alt=""></figure>
+                      <span>Sign Up</span>
+                    </a>
+              </div>
+
+          </div>
+
+          <div class="header-search-form"><i class="search-icon fa link-with-bg fa-search" type="submit"></i></div>
+
+          <form class="search-display" action="search-results.html" method="get">
+              <input type="search" name="s" placeholder="Search here...">
+              <button class="search-icon2 fa fa-search" type="submit"></button>
+          </form>
+
+        </nav>
+
+        <nav class="header-mobile-navigation-wrapper">
+
+          <div class="visible-mobile">
+
+            <div class="first-visible-header">
+              <div class="mobile-logo-wrapper"><a href="index.html"><img src="images/switchlink-logo.png"></a></div>
+              <div class="menu-icon">
+                <input type="checkbox" id="toggle">
+                <label for="toggle">
+                    <i id="bars" class="mobile-menu-icon fa fa-bars fa-fw"></i>
+                    <i id="cross" class="mobile-menu-icon fa fa-times fa-fw"></i>
+                </label>
+            </div>
+            </div>
+           
+          </div>
+
+          <div class="hidden-mobile">
+
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about-us.html">About Us</a></li>
+              <li class="mobile-droplist"><a href="#">Solutions<i class="fa fa-angle-down"></i></a>
+                <ul class="mobile-dropdown">
+                  <li><a href="payment-gateway.html">Payment Gateway</a></li>
+                  <li><a href="#" class="mobile-droplist1">Software Development<i class="fa fa-angle-down"></i></a>
+                    <ul class="mobile-dropdown1">
+                        <li><a href="software-development.html">SAAS</a></li>
+                        <li><a href="software-development.html">On Premise Solutions</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="for-developers.html"  class="active-header-link">For Developers</a></li>
+              <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+
+          </div>
+
+          <div class="visible-mobile">
+
+            <div class="second-visible-header switchlink-mobile-login">
+
+              <a href="#modal" class="header-login" data-lightbox="">
+                <figure><img src="images/login-icon.png" alt="SwitchLink LogIn"></figure>
+                <span>Login</span>
+              </a>
+
+              <a href="#modal1" class="header-signup" data-lightbox="">
+                <figure><img src="images/signup-icon.png" alt=""></figure>
+                <span>Sign Up</span>
+              </a>
+
+            </div>
+            <div class="third-visible-header">
+              <form class="mobile-search" action="search-results.html" method="get">
+                <input type="search" name="" value="" placeholder="Search here">
+                <button type="submit" name="button" class="fa fa-search"></button>
+              </form>
+            </div>
+
+          </div>
+
+        </nav>
+
+
+        <div id="modal" hidden>
+            <div class="modal-content">
+              <div class="login-header">
+                <div class="login-trim"><img src="images/login-header-beam.png"></div>
+                <div class="login-logo"><a href="index.html"><img src="images/switchlink-logo.png" alt="SwitchLink Logo"></a></div>
+              </div>
+
+              <div class="login-portal-via-wrapper">
+                <div class="portal-wrapper">
+                  <h2>Login to the portal</h2>
+                  <form>
+                    <div class="email-input-login">
+                      <input type="email" name="email" placeholder="Your email address">
+                      <img src="images/login-icon.png">
+                    </div>
+                    <div class="password-input-login">
+                      <input type="password" name="password" placeholder="Password">
+                      <img src="images/signup-icon.png">
+                    </div>
+
+                    <button type="submit">Login</button>
+
+                    <p class="forgot-p">Forgot your Password?</p>
+                    <div class="forgot-password-wrapper">
+                      <h4>Enter the email address you signed up with for password recovery then check your email inbox after submiting</h4>
+                      <div class="email-input-login">
+                        <input type="email" name="email" placeholder="Your email address">
+                        <img src="images/login-icon.png">
+                      </div>
+                      <button type="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="via-wrapper">
+                  <h3>Login Via</h3>
+                  <ul>
+                    <li><a href="#"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
+                    <li><a href="#"><i class="fa fa-twitter fa-fw"></i><span>Twitter</span></a></li>
+                    <li><a href="#"><i class="fa fa-google fa-fw"></i><span>Google</span></a></li>
+                    
+                  </ul>
+
+                  <p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+
+        <div id="modal1" hidden>
+            <div class="modal-content">
+              <div class="login-header">
+                <div class="login-trim"><img src="images/login-header-beam.png"></div>
+                <div class="login-logo"><a href="index.html"><img src="images/switchlink-logo.png" alt="SwitchLink Logo"></a></div>
+              </div>
+
+              <div class="login-portal-via-wrapper">
+                <div class="portal-wrapper">
+                  <h2>Sign Up to the portal</h2>
+                  <form>
+                    <div class="email-input-login">
+                      <input type="email" name="email" placeholder="Your email address">
+                      <img src="images/login-icon.png">
+                    </div>
+                    <div class="password-input-login">
+                      <input type="password" name="password" placeholder="Password">
+                      <img src="images/signup-icon.png">
+                    </div>
+
+                    <div class="password-input-login">
+                      <input type="password" name="password" placeholder="Confirm Password">
+                      <img src="images/signup-icon.png">
+                    </div>
+
+                    <button type="submit">Sign Up</button>
+                    
+                  </form>
+                </div>
+                <div class="via-wrapper">
+                  <h3>Sign Up Via</h3>
+                  <ul>
+                    <li><a href="#"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
+                    <li><a href="#"><i class="fa fa-twitter fa-fw"></i><span>Twitter</span></a></li>
+                    <li><a href="#"><i class="fa fa-google fa-fw"></i><span>Google</span></a></li>
+                    
+                  </ul>
+
+                  <p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+
+        <div id="modal2" hidden>
+          <div class="modal-content">
+            <div class="sitemap-wrapper">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="payment-gateway.html">Payment Gateway</a></li>
+                <li><a href="software-development.html">Software Development</a></li>
+                <li><a href="for-developers.html">For Developer</a></li>
+                <li><a href="single-developers.html">For Developers Single</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="single-careers.html">Careers Single</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                <li><a href="404.html">404 Error</a></li>
+                <li><a href="search-results.html">Search Results</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+      <article class="single-developers-wrapper">
+
+        <section>
+
+            <div class="single-developers-content-wrapper">
+              <div class="single-developer-links">
+                <div class="developer-links-wrapper">
+                  <h4>1) B2B API</h4>
+                  <ul>
+                    <li><a href="#link1" class="link1">1.1 What is this repository for?</a></li>
+                    <li><a href="#link2" class="link2">1.2 How do I get set up?</a></li>
+                    <li><a href="#link3" class="link3">1.3 Contribution guidelines</a></li>
+                    <li><a href="#link4" class="link4">1.4 Who do I talk to incase of any query?</a></li>
+                    <li><a href="#link5" class="link5">1.5 URI & Versioning</a></li>
+                    <li><a href="#link6" class="link6">1.6 Endpoints</a></li>
+                  </ul>
+
+                  <h4>2) Getting Started</h4>
+                  <ul>
+                    <li><a href="#link7">2.1 Funding your B2B account from your iPay merchant income</a></li>
+                    <li><a href="#link8">2.2 How to generate the hash value to sign the B2B payment request</a></li>
+                    <li><a href="#link9">2.3 Sending Money</a></li>
+                    <li><a href="#link10">2.4 Transaction Status</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="single-developer-details">
+                <div class="developer-details-wrapper">
+
+                  <div class="dev-summary">
+                    <h2>1 B2B API</h2>
+                    <span>This is the B2B API</span>
+                    <ul>
+                      <li>Quick Summary</li>
+                      <li>Versio 1.0.0</li>
+                    </ul>
+                  </div>
+
+                  <div id="link1" class="numbered-links">
+                    <h4>1.1 What is this repository for?</h4>
+                    <p>B2B Payment Processing Integration Manual</p>
+                  </div>
+
+                  <div id="link2" class="numbered-links">
+                    <h4>1.2 How do I get set up?</h4>
+                    <ul>
+                      <li>Ensure that you have a merchant account with switch link africa.</li>
+                      <li>Ensure your account has been set up to allow transactions</li>
+                      <li>Ensure that you have a security key</li>
+                    </ul>
+                  </div>
+
+                  <div id="link3" class="numbered-links">
+                    <h4>1.3 Contribution guidelines</h4>
+                    <p>We would really appreciate feedback and suggestions. Issues, and suggestions can be emailed to technical [at] switch link africa [dot] com</p>
+                  </div>
+
+                  <div id="link4" class="numbered-links">
+                    <h4>1.4 Who do I talk to incase of any query?</h4>
+                    <ul>
+                      <li>For general issues, email support [at] iswitch link africa [dot] com <a href="mailto:support@switchlink.com">support@switchlink.com</a> </li>
+                      <li>For technical issues, email technical [at] switch link africa [dot] com <a href="mailto:technical@switchlink.com">technical@switchlink.com</a> </li>
+                      <li>Or send us a skype request at switch link africa support <a href="mailto:support@switchlink.com">support@switchlink.com</a> </li>
+                    </ul>
+                  </div>
+
+                  <div id="link5" class="numbered-links">
+                    <h4>1.5 URI & Versioning</h4>
+                    <p>We hope to improve the API over time. The changes won’t always be backward compatible, so we’re going to use versioning. There is currently no rate limit. For versioning purposes, only removal of a non-optional field or alteration of an existing field will be considered incompatible changes. You should gracefully handle additional fields you do not expect.</p>
+                  </div>
+
+                  <div id="link6" class="numbered-links">
+                    <h4>1.6 Endpoints</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
+
+                  <div class="dev-summary">
+                    <h2>2 Getting Started</h2>
+                    <span>This is the B2B API getting started</span>
+                    <ul>
+                      <li>Quick Summary</li>
+                      <li>Versio 1.0.0</li>
+                    </ul>
+                  </div>
+
+                  <div id="link7" class="numbered-links">
+                    <h4>2.1 Funding your B2B account from your iPay merchant income</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
+
+                  <div id="link8" class="numbered-links">
+                    <h4>2.2 How to generate the hash value to sign the B2B payment request</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
+
+                  <div id="link9" class="numbered-links">
+                    <h4>2.3 Sending Money</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
+
+                  <div id="link10" class="numbered-links">
+                    <h4>2.4 Transaction Status</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          
+        </section>
+
+      </article>
+
+      <footer class="footer-wrapper-links">
+
+        <div class="footer-trim"><img src="images/header-trim.png"></div>
+        <div class="top-footer-wrapper">
+          <nav class="footer-links">
+            <div class="footer-column">
+              <h3>Solutions</h3>
+              <ul>
+                <li><a href="payment-gateway.html">Payment Platform</a></li>
+                <li><a href="payment-gateway.html">Merchant Payment</a></li>
+                <li><a href="payment-gateway.html">Fund Disbursement</a></li>
+                <li><a href="payment-gateway.html">Revenue Collection</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Software Development</h3>
+              <ul>
+                <li><a href="software-development.html">Financial Inclusion</a></li>
+                <li><a href="software-development.html">Payment Infrastructure</a></li>
+                <li><a href="software-development.html">Transaction Processing</a></li>
+                <li><a href="software-development.html">Technology Integration</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="#modal" class="footer-login" data-lightbox="">Login</a></li>
+                <li><a href="#modal1" class="footer-login" data-lightbox="">Sign Up</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+              </ul>
+            </div>
+
+          </nav>
+
+          <div class="subscribe-wrapper">
+            <div class="subscribe-icon"><img src="images/subscribe-icon.png"></div>
+            <div class="subscribe-details">
+              <h3>Know more about us</h3>
+              <form>
+                <input type="email" name="Email Address" placeholder="Enter your email address">
+                <a href="images/switchlink-logo.png" download>Download Company Profile</a>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-footer-wrapper">
+          <div class="bottom-footer-links">
+            <ul>
+              <li><a href="faqs.html">FAQs</a></li>
+              <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="#modal2" class="footer-sitemap" data-lightbox="">Sitemap</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <ul>
+              <li><a href="#" target="_blank" class="fa fa-facebook"></a></li>
+              <li><a href="#" target="_blank" class="fa fa-twitter"></a></li>
+              <li><a href="#" target="_blank" class="fa fa-youtube-play"></a></li>
+              <li><a href="#" target="_blank" class="fa fa-linkedin"></a></li>
+            </ul>
+          </div>
+          <div class="footer-copyright"><p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p></div>
+        </div>
+
+        <a href="#" class="go-top"><p>Go Top</p> <i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+      </footer>
+
+    </main>
+
+  <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+  <script type="text/javascript" src="js/owl.carousel.js"></script>
+  <script type="text/javascript" src="js/lightbox.js"></script>
+  <script type="text/javascript" src="js/wow.js"></script>
+  <script type="text/javascript" src="js/jquery.nice-select.js"></script>
+  <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+  <script src="js/modernizr.custom.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/imagesloaded.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/AnimOnScroll.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  </body>
+
+</html>

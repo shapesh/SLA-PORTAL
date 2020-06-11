@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SwitchLink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="css/lightbox.min.css" type="text/css">
+    <link rel="stylesheet" href="css/square/blue.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery.bxslider.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css">
+    <link type="text/css" rel="stylesheet" href="css/easy-responsive-tabs.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="css/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="css/favicon/favicon-16x16.png">
+    <link rel="manifest" href="css/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body>
+
+    <main class="container">
+      <header>
+
+        <nav class="header-navigation-wrapper">
+
+          <div class="header-trim"><img src="images/header-trim.png"></div>
+
+          <div class="header-logo-wrapper">
+            <a href="index.html"><img src="images/switchlink-logo.png" alt="SwitchLink Logo"></a>
+          </div>
+
+          <ul class="header-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li class="hover-dropdown"><a href="#">Solutions<i class="fa fa-angle-down"></i></a>
+              <ul class="dropdown">
+                <div class="dropdown-lists">
+                  <li><a href="payment-gateway.html">Payment Gateway</a></li>
+                  <li class="hover-dropdown-sub"><a href="#">Software Development<i class="fa fa-angle-right"></i></a>
+                  <ul class="dropdown-sub-categories">
+                      <div class="sub-categories-lists">
+                          <li><a href="software-development.html">SAAS</a></li>
+                          <li><a href="software-development.html">On Premise Solutions</a></li>
+                      </div>
+                  </ul>
+                  </li>
+                </div>
+                
+              </ul>
+            </li>
+            <li><a href="for-developers.html">For Developers</a></li>
+            <li><a href="contact-us.html">Contact</a></li>
+          </ul>
+
+
+          <div class="header-login-wrapper">
+              
+              <div class="float-log">
+                  <a href="#modal" class="header-login" data-lightbox="">
+                      <figure><img src="images/login-icon.png" alt="SwitchLink LogIn"></figure>
+                      <span>Login</span>
+                    </a>
+        
+                    <a href="#modal1" class="header-signup" data-lightbox="">
+                      <figure><img src="images/signup-icon.png" alt=""></figure>
+                      <span>Sign Up</span>
+                    </a>
+              </div>
+
+          </div>
+
+          <div class="header-search-form"><i class="search-icon fa link-with-bg fa-search" type="submit"></i></div>
+
+          <form class="search-display" action="search-results.html" method="get">
+              <input type="search" name="s" placeholder="Search here...">
+              <button class="search-icon2 fa fa-search" type="submit"></button>
+          </form>
+
+        </nav>
+
+        <nav class="header-mobile-navigation-wrapper">
+
+          <div class="visible-mobile">
+
+            <div class="first-visible-header">
+              <div class="mobile-logo-wrapper"><a href="index.html"><img src="images/switchlink-logo.png"></a></div>
+              <div class="menu-icon">
+                <input type="checkbox" id="toggle">
+                <label for="toggle">
+                    <i id="bars" class="mobile-menu-icon fa fa-bars fa-fw"></i>
+                    <i id="cross" class="mobile-menu-icon fa fa-times fa-fw"></i>
+                </label>
+            </div>
+            </div>
+           
+          </div>
+
+          <div class="hidden-mobile">
+
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about-us.html">About Us</a></li>
+              <li class="mobile-droplist"><a href="#">Solutions<i class="fa fa-angle-down"></i></a>
+                <ul class="mobile-dropdown">
+                  <li><a href="payment-gateway.html">Payment Gateway</a></li>
+                  <li><a href="#" class="mobile-droplist1">Software Development<i class="fa fa-angle-down"></i></a>
+                    <ul class="mobile-dropdown1">
+                        <li><a href="software-development.html">SAAS</a></li>
+                        <li><a href="software-development.html">On Premise Solutions</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="for-developers.html">For Developers</a></li>
+              <li><a href="contact-us.html">Contact</a></li>
+            </ul>
+
+          </div>
+
+          <div class="visible-mobile">
+
+            <div class="second-visible-header switchlink-mobile-login">
+
+              <a href="#modal" class="header-login" data-lightbox="">
+                <figure><img src="images/login-icon.png" alt="SwitchLink LogIn"></figure>
+                <span>Login</span>
+              </a>
+
+              <a href="#modal1" class="header-signup" data-lightbox="">
+                <figure><img src="images/signup-icon.png" alt=""></figure>
+                <span>Sign Up</span>
+              </a>
+
+            </div>
+            <div class="third-visible-header">
+              <form class="mobile-search" action="search-results.html" method="get">
+                <input type="search" name="" value="" placeholder="Search here">
+                <button type="submit" name="button" class="fa fa-search"></button>
+              </form>
+            </div>
+
+          </div>
+
+        </nav>
+
+
+        <div id="modal" hidden>
+            <div class="modal-content">
+              <div class="login-header">
+                <div class="login-trim"><img src="images/login-header-beam.png"></div>
+                <div class="login-logo"><a href="index.html"><img src="images/switchlink-logo.png" alt="SwitchLink Logo"></a></div>
+              </div>
+
+              <div class="login-portal-via-wrapper">
+                <div class="portal-wrapper">
+                  <h2>Login to the portal</h2>
+                  <form>
+                    <div class="email-input-login">
+                      <input type="email" name="email" placeholder="Your email address">
+                      <img src="images/login-icon.png">
+                    </div>
+                    <div class="password-input-login">
+                      <input type="password" name="password" placeholder="Password">
+                      <img src="images/signup-icon.png">
+                    </div>
+
+                    <button type="submit">Login</button>
+
+                    <p class="forgot-p">Forgot your Password?</p>
+                    <div class="forgot-password-wrapper">
+                      <h4>Enter the email address you signed up with for password recovery then check your email inbox after submiting</h4>
+                      <div class="email-input-login">
+                        <input type="email" name="email" placeholder="Your email address">
+                        <img src="images/login-icon.png">
+                      </div>
+                      <button type="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="via-wrapper">
+                  <h3>Login Via</h3>
+                  <ul>
+                    <li><a href="#"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
+                    <li><a href="#"><i class="fa fa-twitter fa-fw"></i><span>Twitter</span></a></li>
+                    <li><a href="#"><i class="fa fa-google fa-fw"></i><span>Google</span></a></li>
+                    
+                  </ul>
+
+                  <p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+
+        <div id="modal1" hidden>
+            <div class="modal-content">
+              <div class="login-header">
+                <div class="login-trim"><img src="images/login-header-beam.png"></div>
+                <div class="login-logo"><a href="index.html"><img src="images/switchlink-logo.png" alt="SwitchLink Logo"></a></div>
+              </div>
+
+              <div class="login-portal-via-wrapper">
+                <div class="portal-wrapper">
+                  <h2>Sign Up to the portal</h2>
+                  <form>
+                    <div class="email-input-login">
+                      <input type="email" name="email" placeholder="Your email address">
+                      <img src="images/login-icon.png">
+                    </div>
+                    <div class="password-input-login">
+                      <input type="password" name="password" placeholder="Password">
+                      <img src="images/signup-icon.png">
+                    </div>
+
+                    <div class="password-input-login">
+                      <input type="password" name="password" placeholder="Confirm Password">
+                      <img src="images/signup-icon.png">
+                    </div>
+
+                    <button type="submit">Sign Up</button>
+                    
+                  </form>
+                </div>
+                <div class="via-wrapper">
+                  <h3>Sign Up Via</h3>
+                  <ul>
+                    <li><a href="#"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
+                    <li><a href="#"><i class="fa fa-twitter fa-fw"></i><span>Twitter</span></a></li>
+                    <li><a href="#"><i class="fa fa-google fa-fw"></i><span>Google</span></a></li>
+                    
+                  </ul>
+
+                  <p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+
+        <div id="modal2" hidden>
+          <div class="modal-content">
+            <div class="sitemap-wrapper">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="payment-gateway.html">Payment Gateway</a></li>
+                <li><a href="software-development.html">Software Development</a></li>
+                <li><a href="for-developers.html">For Developer</a></li>
+                <li><a href="single-developers.html">For Developers Single</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="single-careers.html">Careers Single</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                <li><a href="404.html">404 Error</a></li>
+                <li><a href="search-results.html">Search Results</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+      <article class="search-results-wrapper">
+
+              <section>
+
+                <div class="search-results">
+
+                  <h1>Search results for Sly</h1>
+
+                  <ul>
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="header-search-link">Onboarding process <span>Sly</span> questions</a>
+                      <p>… be sure they’re effective unless you ask new hires about them. Use onboarding process <span>Sly</span>'s to take the pulse of your new hire training. These surveys will help you …</p>
+                      <a href="#" class="search-small-link">Interview questions</a>
+                    </li>
+
+                  </ul>
+
+                </div>
+
+              </section>
+
+      </article>
+
+      <footer class="footer-wrapper-links">
+
+        <div class="footer-trim"><img src="images/header-trim.png"></div>
+        <div class="top-footer-wrapper">
+          <nav class="footer-links">
+            <div class="footer-column">
+              <h3>Solutions</h3>
+              <ul>
+                <li><a href="payment-gateway.html">Payment Platform</a></li>
+                <li><a href="payment-gateway.html">Merchant Payment</a></li>
+                <li><a href="payment-gateway.html">Fund Disbursement</a></li>
+                <li><a href="payment-gateway.html">Revenue Collection</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Software Development</h3>
+              <ul>
+                <li><a href="software-development.html">Financial Inclusion</a></li>
+                <li><a href="software-development.html">Payment Infrastructure</a></li>
+                <li><a href="software-development.html">Transaction Processing</a></li>
+                <li><a href="software-development.html">Technology Integration</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="#modal" class="footer-login" data-lightbox="">Login</a></li>
+                <li><a href="#modal1" class="footer-login" data-lightbox="">Sign Up</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="careers.html">Careers</a></li>
+              </ul>
+            </div>
+
+          </nav>
+
+          <div class="subscribe-wrapper">
+            <div class="subscribe-icon"><img src="images/subscribe-icon.png"></div>
+            <div class="subscribe-details">
+              <h3>Know more about us</h3>
+              <form>
+                <input type="email" name="Email Address" placeholder="Enter your email address">
+                <a href="images/switchlink-logo.png" download>Download Company Profile</a>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-footer-wrapper">
+          <div class="bottom-footer-links">
+            <ul>
+              <li><a href="faqs.html">FAQs</a></li>
+              <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="#modal2" class="footer-sitemap" data-lightbox="">Sitemap</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <ul>
+              <li><a href="#" target="_blank" class="fa fa-facebook"></a></li>
+              <li><a href="#" target="_blank" class="fa fa-twitter"></a></li>
+              <li><a href="#" target="_blank" class="fa fa-youtube-play"></a></li>
+              <li><a href="#" target="_blank" class="fa fa-linkedin"></a></li>
+            </ul>
+          </div>
+          <div class="footer-copyright"><p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p></div>
+        </div>
+
+        <a href="#" class="go-top"><p>Go Top</p> <i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+      </footer>
+
+    </main>
+
+  <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+  <script type="text/javascript" src="js/owl.carousel.js"></script>
+  <script type="text/javascript" src="js/lightbox.js"></script>
+  <script type="text/javascript" src="js/wow.js"></script>
+  <script type="text/javascript" src="js/jquery.nice-select.js"></script>
+  <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+  <script src="js/modernizr.custom.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/imagesloaded.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/AnimOnScroll.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  </body>
+
+</html>
