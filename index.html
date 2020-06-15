@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="css/lightbox.min.css" type="text/css">
-    <link rel="stylesheet" href="css/square/blue.css" type="text/css">
+<!--    <link rel="stylesheet" href="css/square/blue.css" type="text/css">-->
     <link rel="stylesheet" href="css/jquery.bxslider.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="css/owl.theme.css" type="text/css">
@@ -25,7 +25,71 @@
     <link rel="manifest" href="css/favicon/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script>
+      var googleUser = {};
+      var startApp = function() {
+        gapi.load('auth2', function(){
+          // Retrieve the singleton for the GoogleAuth library and set up the client.
+          auth2 = gapi.auth2.init({
+            client_id: '785816498987-733uurj6sdiapag2pp1bddgn0vc5cfl9.apps.googleusercontent.com',
+            cookiepolicy: 'single_host_origin',
+            // Request scopes in addition to 'profile' and 'email'
+            //scope: 'additional_scope'
+          });
+          attachSignin(document.getElementById('customBtn'));
+        });
+      };
 
+      function attachSignin(element) {
+        console.log(element.id);
+        auth2.attachClickHandler(element, {},
+                function(googleUser) {
+                  document.getElementById('name').innerText = "Signed in: " +
+                          googleUser.getBasicProfile().getName();
+                }, function(error) {
+                  alert(JSON.stringify(error, undefined, 2));
+                });
+      }
+    </script>
+    <style type="text/css">
+      #customBtn {
+        text-align: center;
+        display: inline-block;
+        /*background: white;*/
+        background-color: #f9f9f9;
+        color: #444;
+        /*width: 190px;*/
+        border-radius: 5px;
+        border: thin solid #888;
+        box-shadow: 1px 1px 1px grey;
+        white-space: nowrap;
+      }
+      #customBtn:hover {
+        cursor: pointer;
+      }
+      span.label {
+        font-family: serif;
+        font-weight: normal;
+      }
+      span.icon {
+        background: url('/images/icon-google.svg') transparent 5px 50% no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        width: 42px;
+        height: 42px;
+      }
+      span.buttonText {
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 42px;
+        padding-right: 42px;
+        font-size: 14px;
+        font-weight: bold;
+        /* Use the Roboto font that is loaded in the <head> */
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
   </head>
 
   <body>
@@ -68,12 +132,12 @@
           <div class="header-login-wrapper">
               
               <div class="float-log">
-                  <a href="#modal" class="header-login" data-lightbox="">
+                  <a href="auth/login.html" class="button primary header-login" target="_blank">
                       <figure><img src="images/login-icon.png" alt="SwitchLink LogIn"></figure>
                       <span>Login</span>
                     </a>
-        
-                    <a href="#modal1" class="header-signup" data-lightbox="">
+
+                    <a href="auth/register.html" class="header-signup" target="_blank">
                       <figure><img src="images/signup-icon.png" alt=""></figure>
                       <span>Sign Up</span>
                     </a>
@@ -133,12 +197,12 @@
 
             <div class="second-visible-header switchlink-mobile-login">
 
-              <a href="#modal" class="header-login" data-lightbox="">
+              <a href="auth/login.html" class="header-login" target="_blank">
                 <figure><img src="images/login-icon.png" alt="SwitchLink LogIn"></figure>
                 <span>Login</span>
               </a>
 
-              <a href="#modal1" class="header-signup" data-lightbox="">
+              <a href="auth/register.html" class="header-signup" target="_blank">
                 <figure><img src="images/signup-icon.png" alt=""></figure>
                 <span>Sign Up</span>
               </a>
@@ -195,11 +259,23 @@
                     <li><a href="#"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
                     <li><a href="#"><i class="fa fa-twitter fa-fw"></i><span>Twitter</span></a></li>
                     <li><a href="#"><i class="fa fa-google fa-fw"></i><span>Google</span></a></li>
-                    
                   </ul>
+                  <!-- In the callback, you would hide the gSignInWrapper element on a
+successful sign in -->
+                  <div id="gSignInWrapper">
+                    <span class="label">Sign in with:</span>
+                    <div id="customBtn" class="customGPlusSignIn">
+                      <span class="icon"></span>
+                      <span class="buttonText">Google</span>
+                    </div>
+                  </div>
+                  <div id="name"></div>
+                  <script>startApp();</script>
+
 
                   <p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p>
                 </div>
+
               </div>
               
             </div>
@@ -240,7 +316,6 @@
                     <li><a href="#"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
                     <li><a href="#"><i class="fa fa-twitter fa-fw"></i><span>Twitter</span></a></li>
                     <li><a href="#"><i class="fa fa-google fa-fw"></i><span>Google</span></a></li>
-                    
                   </ul>
 
                   <p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p>
@@ -510,8 +585,7 @@
       </footer>
 
     </main>
-
-  <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
   <script type="text/javascript" src="js/jquery.bxslider.js"></script>
   <script type="text/javascript" src="js/owl.carousel.js"></script>
   <script type="text/javascript" src="js/lightbox.js"></script>
