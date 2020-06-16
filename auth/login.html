@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:fb="">
 <head>
     <!--    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">-->
     <meta charset="utf-8">
@@ -26,6 +25,10 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script src="https://apis.google.com/js/api:client.js"></script>
+    <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=579529672749062&autoLogAppEvents=1"
+            nonce="p8sTg3Ph"></script>
+
     <script>
         var googleUser = {};
         var startApp = function () {
@@ -53,7 +56,127 @@
                 });
         }
     </script>
+    <script>
+        function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+            console.log('statusChangeCallback');
+            console.log(response);                   // The current login status of the person.
+            if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                testAPI();
+                // } else {                                 // Not logged into your webpage or we are unable to tell.
+                //     document.getElementById('status').innerHTML = 'Please log ' +
+                //         'into this webpage.';
+            }
+        }
+
+        function checkLoginState() {               // Called when a person is finished with the Login Button.
+            FB.getLoginStatus(function (response) {   // See the onlogin handler
+                statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '579529672749062',
+                cookie: true,                     // Enable cookies to allow the server to access the session.
+                xfbml: true,                     // Parse social plugins on this webpage.
+                version: 'v7.0'           // Use this Graph API version for this call.
+            });
+
+            FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
+                statusChangeCallback(response);        // Returns the login status.
+            });
+        };
+
+        function myFunction() {
+            var myWindow = window.open("https://www.facebook.com/v7.0/dialog/oauth?app_id=579529672749062&auth_type=&cbt=1592314540390&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df1dc84de767b0c%26domain%3Dswitchlink.com%26origin%3Dhttps%253A%252F%252Fswitchlink.com%252Ff3a1079cc3b6a28%26relation%3Dopener&client_id=579529672749062&display=popup&domain=switchlink.com&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Fswitchlink.com%2Fauth%2Flogin.html&id=f659c72375058&locale=en_GB&logger_id=b80926a7-5e56-45ce-b713-eb6ea1781384&origin=1&plugin_prepare=true&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df2e8232536f8b5%26domain%3Dswitchlink.com%26origin%3Dhttps%253A%252F%252Fswitchlink.com%252Ff3a1079cc3b6a28%26relation%3Dopener.parent%26frame%3Df659c72375058&ref=LoginButton&response_type=signed_request%2Ctoken%2Cgraph_domain&scope=public_profile%2Cemail&sdk=joey&size=%7B%22width%22%3A600%2C%22height%22%3A679%7D&url=dialog%2Foauth&version=v7.0", "_blank", "width=200,height=100");
+            // myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+        }
+
+        function fb_login() {
+            FB.login(function (response) {
+
+                if (response.authResponse) {
+                    console.log('Welcome!  Fetching your information.... ');
+                    //console.log(response); // dump complete info
+                    access_token = response.authResponse.accessToken; //get access token
+                    user_id = response.authResponse.userID; //get FB UID
+
+                    FB.api('/me', function (response) {
+                        user_email = response.email; //get user email
+                        // you can store this data into your database
+                    });
+
+                } else {
+                    //user hit cancel button
+                    console.log('User cancelled login or did not fully authorize.');
+
+                }
+            }, {
+                scope: 'publish_stream,email'
+            });
+        }
+
+        (function () {
+            var e = document.createElement('script');
+            e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+            e.async = true;
+            document.getElementById('fb-root').appendChild(e);
+        }());
+
+
+        (function (d, s, id) {                      // Load the SDK asynchronously
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+        function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function (response) {
+                console.log('Successful login for: ' + response.name);
+                document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
+            });
+        }
+
+    </script>
     <style type="text/css">
+        .login-btn + .login-btn {
+            margin-top: 8px;
+        }
+
+        .login-btn {
+            display: block;
+            border-radius: 8px;
+            line-height: 38px;
+            border: 1px solid #940303;
+            background-color: #c00505;
+            font-style: normal;
+            font-weight: 700;
+            padding: 0 8px 0 54px;
+            color: #747487;
+            position: relative;
+        }
+
+        .customBtn {
+            width: 100%;
+            float: left;
+            background-color: #c00505;
+            border: 1px solid #940303;
+            color: #dcb4b4;
+            padding: 0 !important;
+
+        }
+        .customBtn:hover {
+            cursor: pointer;
+            background-color: #880303;
+            color: #dcb4b4;
+        }
+
         #customBtn {
             width: 100%;
             float: left;
@@ -89,6 +212,23 @@
             height: 42px;
         }
 
+        /*.fb_iframe_widget iframe {*/
+        /*    opacity: 0;*/
+        /*}*/
+
+        /*.fb_iframe_widget {*/
+        /*    !*background-image: url();*!*/
+        /*    background-repeat: no-repeat;*/
+        /*}*/
+        span.iconfb {
+            float: left;
+            background: url('/images/fb-login-sm.png') transparent 5px 50% no-repeat;
+            display: inline-block;
+            vertical-align: middle;
+            width: 42px;
+            height: 42px;
+        }
+
         span.buttonText {
             float: left;
             padding: 13px 0 0 20px;
@@ -105,6 +245,7 @@
     </style>
 </head>
 <body>
+<div id="fb-root"></div>
 <div id="modal">
     <div class="modal-content">
         <div class="login-header">
@@ -143,8 +284,13 @@
             <div class="via-wrapper">
                 <h3>Login Via</h3>
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
-                    <li><a href="#"><i class="fa fa-twitter fa-fw"></i><span>Twitter</span></a></li>
+                    <!--                    <li><a href="#"><i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>-->
+                    <li>
+                        <fb:login-button scope="public_profile,email" size="xlarge" onclick="checkLoginState();">
+                            <span>Facebook</span>
+                        </fb:login-button>
+                    </li>
+                    <li><a href="#"><img src='../images/twitter-login-blue.png' alt=""></a></li>
                     <!--                    <li><a href="#"><span class="icon"></span><span>Google</span></a></li>-->
                     <li>
                         <!-- In the callback, you would hide the gSignInWrapper element on a
@@ -158,31 +304,42 @@ successful sign in -->
                             </div>
                         </div>
                     </li>
+                    <li><a class="customBtn login-btn-facebook" onclick="myFunction()">
+                        <i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
+                    <!--                    <li>-->
+                    <!--                        <div class="fb-login-button" data-size="large" data-button-type="" onlogin="checkLoginState();"-->
+                    <!--                             data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"-->
+                    <!--                             data-width=""></div>-->
+                    <!--                    </li>-->
+
+                    <li><a href="#" onlogin="checkLoginState();" class="fb-login-button"
+                           size="xlarge"><span>Facebook</span></a></li>
                 </ul>
+                <div id="status">
 
-                <div id="name"></div>
+                    <div id="name"></div>
 
-                <p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p>
+                    <p>&copy; 2020 SWITCHLINK AFRICA. ALL RIGHTS RESERVED.</p>
+                </div>
+
             </div>
 
         </div>
-
     </div>
-</div>
-<script>startApp();</script>
-<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="../js/jquery.bxslider.js"></script>
-<script type="text/javascript" src="../js/owl.carousel.js"></script>
-<script type="text/javascript" src="../js/lightbox.js"></script>
-<script type="text/javascript" src="../js/wow.js"></script>
-<script type="text/javascript" src="../js/jquery.nice-select.js"></script>
-<script src="../js/easyResponsiveTabs.js" type="text/javascript"></script>
-<script src="../js/modernizr.custom.js"></script>
-<script src="../js/masonry.pkgd.min.js"></script>
-<script src="../js/imagesloaded.js"></script>
-<script src="../js/classie.js"></script>
-<script src="../js/AnimOnScroll.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
+    <script>startApp();</script>
+    <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="../js/owl.carousel.js"></script>
+    <script type="text/javascript" src="../js/lightbox.js"></script>
+    <script type="text/javascript" src="../js/wow.js"></script>
+    <script type="text/javascript" src="../js/jquery.nice-select.js"></script>
+    <script src="../js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <script src="../js/modernizr.custom.js"></script>
+    <script src="../js/masonry.pkgd.min.js"></script>
+    <script src="../js/imagesloaded.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/AnimOnScroll.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
 </body>
 </html>
 

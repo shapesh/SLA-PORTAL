@@ -838,15 +838,15 @@ img{
     float: left;
     margin: 10px 0;
 }
-.via-wrapper ul li a{
-    width: 100%;
-    float: left;
-    background-color: #c00505;
-    border: 1px solid #940303;
-    color: #dcb4b4;
-    padding: 0!important;
-    
-}
+/*.via-wrapper ul li a{*/
+/*    width: 100%;*/
+/*    float: left;*/
+/*    background-color: #c00505;*/
+/*    border: 1px solid #940303;*/
+/*    color: #dcb4b4;*/
+/*    padding: 0!important;*/
+/*    */
+/*}*/
 
 .via-wrapper ul li a:hover{
     background-color: #880303;
