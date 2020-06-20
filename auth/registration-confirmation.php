@@ -28,8 +28,8 @@ $currentTime = date("Y-m-d H:i:s", strtotime("+3 hours"));
 $tokenQuery = "SELECT user_id
     FROM tokens
     WHERE token = ?
-    AND token_expires > $currentTime";
-$tokenQueryParams = array($token);
+    AND token_expires > ?";
+$tokenQueryParams = array($token, $currentTime);
 $tokenDataResults = sqlsrv_query($conn, $tokenQuery, $tokenQueryParams);
 if ($tokenDataResults == false)
     die( print_r( sqlsrv_errors(), true)); //See why it fails
@@ -42,8 +42,7 @@ while($row = sqlsrv_fetch_array($tokenDataResults, SQLSRV_FETCH_ASSOC)){
 //$rowsUpdated = sqlsrv_rows_affected($confirmDetails);
     if ($confirmDetails == false)
         die( print_r( sqlsrv_errors(), true)); //See why it fails
-    echo 'nailed it';
+        header("Location: login.php?just-registered=1");
 }
-//    header("Location: login.php?just-registered=1");
 sqlsrv_free_stmt($confirmDetails);
 

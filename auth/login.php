@@ -196,7 +196,7 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
         <div class="login-portal-via-wrapper">
             <div class="portal-wrapper">
                 <h2>Login to the portal</h2>
-                <form autocomplete="off">
+                <form autocomplete="off" method="post" action="confirm-login.php">
                     <div class="email-input-login">
                         <input type="email" name="email" placeholder="Your email address">
                         <img src="../images/icons8-envelope-160.png">
@@ -207,10 +207,13 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                     </div>
 
                     <button type="submit">Login</button>
+                    <span class="reg">Dont have an account yet? &nbsp;&nbsp;<a href="register.php">Register</a></span>
+                </form>
+                <form>
 
                     <p class="forgot-p">Forgot your Password?</p>
-                    <span class="reg">Dont have an account yet? &nbsp;&nbsp;<a href="register.php">Register</a></span>
-                    <div class="forgot-password-wrapper">
+
+                <div class="forgot-password-wrapper">
                         <h4>Enter the email address you signed up with for password recovery then check your email inbox
                             after submiting</h4>
                         <div class="email-input-login">
