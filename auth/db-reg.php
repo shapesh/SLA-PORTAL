@@ -30,48 +30,52 @@
         exit('Passwords do not match');
     }
     $email = $_POST['email'];
-    //var_dump($email);
+//    var_dump($email);
     // Check if email exists
     //if (isset($_POST['email'])) {
-    $qUsernameCheck = "SELECT * FROM users WHERE email='$email'";
-    //    try {
-    $stmtUsername = sqlsrv_query($conn, $qUsernameCheck, array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET));
+    $qUsernameCheck = "SELECT * FROM users WHERE email= ?";
+    $regParams = array($_POST['email']);
+    $stmtUsername = sqlsrv_query($conn, $qUsernameCheck, $regParams, array("Scrollable" => SQLSRV_CURSOR_KEYSET));
     $rowsFetched = sqlsrv_num_rows($stmtUsername);
-    if ($stmtUsername == FALSE or $rowsFetched === FALSE)
-        die(print_r(sqlsrv_errors(), true)); //See why it fails
-    elseif ($rowsFetched > 0)
-        exit('User with this email already exist');
-    elseif ($rowsFetched === 0)
-        $hashedPhrase = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $token = uniqid('switchlink-', true);
-    $userInserts = "INSERT INTO users
-              (first_name, last_Name, email, pass_phrase)
-              VALUES (?, ?, ?, ?);";
-    $userParams = array($_POST['fname'], $_POST['lname'], $_POST['email'], $hashedPhrase);
-    $getUserResults = sqlsrv_query($conn, $userInserts, $userParams);
-    $rowsAffected = sqlsrv_rows_affected($getUserResults);
-    if ($getUserResults == FALSE or $rowsAffected == FALSE) {
+    if ($stmtUsername === FALSE or $rowsFetched === FALSE){
         die(print_r(sqlsrv_errors(), true)); //See why it fails
     }
-    $insertedData = "SELECT * FROM users WHERE email='$email'";
-    $stmtUsername = sqlsrv_query($conn, $qUsernameCheck);
-    if ($stmtUsername == FALSE)
-        die(print_r(sqlsrv_errors(), true)); //See why it fails
-    while ($row = sqlsrv_fetch_array($stmtUsername, SQLSRV_FETCH_ASSOC)) {
-        $tokenInsert = "INSERT INTO tokens
+    elseif ($rowsFetched > 0){
+        exit('User with this email already exist');
+    }
+    else {
+        $hashedPhrase = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $token = uniqid('switchlink-', true);
+        $userInserts = "INSERT INTO users
+              (first_name, last_Name, email, pass_phrase)
+              VALUES (?, ?, ?, ?);";
+        $userParams = array($_POST['fname'], $_POST['lname'], $_POST['email'], $hashedPhrase);
+        $getUserResults = sqlsrv_query($conn, $userInserts, $userParams);
+        $rowsAffected = sqlsrv_rows_affected($getUserResults);
+        if ($getUserResults === FALSE or $rowsAffected === FALSE) {
+            die(print_r(sqlsrv_errors(), true)); //See why it fails
+        }
+//        $insertedTokenData = "SELECT * FROM users WHERE email=?";
+//        $tokenParams = array($_POST['email']);
+        $stmtUsername = sqlsrv_query($conn, $qUsernameCheck, $regParams, array("Scrollable" => SQLSRV_CURSOR_KEYSET));
+        if ($stmtUsername === FALSE)
+            die(print_r(sqlsrv_errors(), true)); //See why it fails
+        while ($row = sqlsrv_fetch_array($stmtUsername, SQLSRV_FETCH_ASSOC)) {
+            $tokenInsert = "INSERT INTO tokens
         (token, user_id, token_expires)
           VALUES (?, ?, ?);";
-        $tokenExpiry = date("Y-m-d H:i:s", strtotime("+4 hours"));
-        $tokeParams = array($token, $row['user_id'], $tokenExpiry);
-        $tokenDataResults = sqlsrv_query($conn, $tokenInsert, $tokeParams);
-        $from    = 'carolgitonga45@gmail.com';
-        $subject = 'Account Activation Required';
-        $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
-        $activate_link = 'https://switchlink.com/auth/registration-confirmation.php?email=' . $row['email'] . '&token='  . $token . '&uuid=' .$row['user_id'];
-        $message = '<p>Please click the following link to activate your account:
+            $tokenExpiry = date("Y-m-d H:i:s", strtotime("+4 hours"));
+            $tokeParams = array($token, $row['user_id'], $tokenExpiry);
+            $tokenDataResults = sqlsrv_query($conn, $tokenInsert, $tokeParams);
+            $from = 'carolgitonga45@gmail.com';
+            $subject = 'Account Activation Required';
+            $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+            $activate_link = 'https://switchlink.com/auth/registration-confirmation.php?email=' . $row['email'] . '&token=' . $token . '&uuid=' . $row['user_id'];
+            $message = '<p>Please click the following link to activate your account:
                             <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
-        mail($row['email'], $subject, $message, $headers);
-        echo 'Please check your email to activate your account!';
+            mail($row['email'], $subject, $message, $headers);
+            echo 'Please check your email to activate your account!';
+        }
     }
     sqlsrv_free_stmt($stmtUsername);
     sqlsrv_free_stmt($getUserResults);

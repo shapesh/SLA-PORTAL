@@ -1,0 +1,19 @@
+{
+    "name": "caroline.gitonga/switchlink",
+    "authors": [
+        {
+            "name": "Caroline Gitonga",
+            "email": "caroline.gitonga@switchlinkafrica.co.ke"
+        }
+    ],
+    "require": {
+        "facebook/graph-sdk" : "^5.7",
+        "illuminate/database": "^7.19",
+        "autoload": {
+            "classmap": [
+                "classes"
+            ]
+        },
+      "ext-pdo": "*"
+    }
+}

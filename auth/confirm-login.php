@@ -28,11 +28,14 @@ $checkUserQuery = "SELECT * FROM users WHERE email = ?";
 $checkUserParams = array($_POST['email']);
 $existingUserData = sqlsrv_query($conn, $checkUserQuery, $checkUserParams, array("Scrollable" => SQLSRV_CURSOR_KEYSET));
 $noExisting = sqlsrv_num_rows($existingUserData);
-if ($existingUserData==FALSE or $noExisting==FALSE)
+
+if ($existingUserData === FALSE or $noExisting === FALSE){
     die(print_r(sqlsrv_errors(), true)); //See why it fails
-elseif ($noExisting == 0)
-    exit('user does not exist');
-//    header('Location: index.html');
+}
+elseif (!$noExisting){
+//    exit('user does not exist. Kindly register first.');
+    header('Location: register.php');
+}
 else
     while ($row = sqlsrv_fetch_array($existingUserData, SQLSRV_FETCH_ASSOC)) {
 //    echo $row['user_id']. $row['email']. $row['first_name'] . $row['registration_confirmed'];

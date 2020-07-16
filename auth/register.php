@@ -209,7 +209,7 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                 </form>
             </div>
             <div class="via-wrapper">
-                <h3>Sign Up Via</h3>
+                <h3>Sign Up With</h3>
                 <ul>
                     <li><a class="customBtn login-btn-facebook" onclick="myFunction()">
                         <i class="fa fa-facebook fa-fw"></i><span>Facebook</span></a></li>
@@ -261,6 +261,8 @@ successful sign in -->
                         ?>
 
                     </li>
+                    <li><a class="customBtn login-btn-facebook" onclick="">
+                            <i class="fa fa-facebook fa-fw"></i><span>Microsoft</span></a></li>
 
                 </ul>
 

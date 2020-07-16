@@ -1,48 +1,48 @@
 <?php
-$serverName = "SLA-DEV-005\SQLEXPRESS"; //Hostname/IP,...
-$connectionOptions = array(
-    "Database" => "sla-portal",
-    "Uid" => "",
-    "PWD" => ""
-);
+$host = 'localhost';
+$username = 'postgres';
+$password = 'postgres';
+$dbname = 'sla-portal';
 //Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-
-if( $conn === false ) {
-//    echo "error with connection";
-    die( print_r( sqlsrv_errors(), true)); //See why it fails
-}
+$conn = new PDO("pgsql:host=$host dbname=$dbname user=$username password=$password");
+//Test Connection
+if ($conn === false) {
+    echo "error with connection";
+//    die(print_r(sqlsrv_errors(), true)); //See why it fails
+} else {
+    echo "Connected!";
 
   if (!isset($_GET['token'])) {
     // How did you get here?
     header("Location: index.html");
   }
 
-//$pageTitle = 'Registration Confirmation';
-//require 'includes/header.php';
-//logout(); // In case a different user has logged in
-
 $token = $_GET['token'];
 $currentTime = date("Y-m-d H:i:s", strtotime("+3 hours"));
 //die($currentTime);
-$tokenQuery = "SELECT user_id
+
+    // Check if the token sent to the user exist exist
+    $stmt = $conn->prepare('SELECT *
     FROM tokens
     WHERE token = ?
-    AND token_expires > ?";
-$tokenQueryParams = array($token, $currentTime);
-$tokenDataResults = sqlsrv_query($conn, $tokenQuery, $tokenQueryParams);
-if ($tokenDataResults == false)
-    die( print_r( sqlsrv_errors(), true)); //See why it fails
-while($row = sqlsrv_fetch_array($tokenDataResults, SQLSRV_FETCH_ASSOC)){
-    $qUpdate = "UPDATE users
-  SET registration_confirmed = ?
-  WHERE user_id = ?";
-    $confirmParams = array(1,$row['user_id']);
-    $confirmDetails = sqlsrv_query($conn, $qUpdate, $confirmParams);
-//$rowsUpdated = sqlsrv_rows_affected($confirmDetails);
-    if ($confirmDetails == false)
-        die( print_r( sqlsrv_errors(), true)); //See why it fails
-        header("Location: login.php?just-registered=1");
+    AND token_expires > ?');
+    // bind value to the parameters
+    $stmt->bindParam(1, $token);
+    $stmt->bindParam(2, $currentTime);
+    $stmt->execute();
+    $tokenRow = $stmt->fetchObject();
+    $userId = $tokenRow->user_id;
+//    $userId = 37;
+    $confirmReg = 1;
+
+        // Update the users confirm_reg field to 1 when the user clicks the email confirmation link
+    $sql = "UPDATE users SET confirm_reg = :confirm_reg WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':confirm_reg', $confirmReg, PDO::PARAM_INT);
+    $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+    $stmt->execute();
+    header("Location: login2.php?registration-confirmed=1");
+
 }
-sqlsrv_free_stmt($confirmDetails);
+
 
