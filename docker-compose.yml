@@ -1,23 +1,23 @@
 version: '2'
 
 services:
-      database:
-        container_name: sla-db
-        image:   postgres:11
-#        build:
-#          context: ./eloquent
-        ports:
-          - 5435:5432
-        environment:
-          - DB_USERNAME=postgres
-          - DB_PASSWORD=postgres
-          - DB_DATABASE=sla-portal
-        volumes:
-          - dbdata:/var/lib/postgresql/data
-        networks:
-          backend:
-            aliases:
-              - db
+#      database:
+#        container_name: sla-db
+#        image:   postgres:11
+##        build:
+##          context: ./eloquent
+#        ports:
+#          - 5435:5432
+#        environment:
+#          - DB_USERNAME=postgres
+#          - DB_PASSWORD=postgres
+#          - DB_DATABASE=sla-portal
+#        volumes:
+#          - dbdata:/var/lib/postgresql/data
+#        networks:
+#          backend:
+#            aliases:
+#              - db
 
 
   #    redis:
@@ -33,18 +33,18 @@ services:
         build:
           context: '.'
         container_name: sla-portal
-        environment:
-          - DB_HOST=localhost
-          - DB_DATABASE=sla-portal
-          - DB_USERNAME=postgres
-          - DB_PASSWORD=postgres
-          - DB_PORT=5432
+#        environment:
+#          - DB_HOST=localhost
+#          - DB_DATABASE=sla-portal
+#          - DB_USERNAME=postgres
+#          - DB_PASSWORD=postgres
+#          - DB_PORT=5432
         volumes:
           - .:/var/www/html
         ports:
           - 8520:80
-        depends_on:
-          - database
+#        depends_on:
+#          - database
         networks:
           backend:
             aliases:
