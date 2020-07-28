@@ -174,7 +174,7 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=579529672749062&autoLogAppEvents=1" nonce="n7C8AjzC"></script>
 <div class="login-form">
-    <form action="confirm-login.php" method="post" autocomplete="off">
+    <form action="confirm-login2.php" method="post" autocomplete="off">
         <fieldset class="fieldset">
             <legend class="text">Login to Switchlink Africa</legend>
 <!--        <h4 class="text-center">Login to Switchlink Africa</h4>-->
@@ -187,7 +187,7 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                         <span class="fa fa-user"></span>
                     </span>
                 </div>
-                <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                <input type="email" class="form-control" name="email" placeholder="Email" required="required">
             </div>
         </div>
 
@@ -210,7 +210,7 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
         <div class="text-center social-btn">
 <!--            <a href="" class="btn btn-primary btn-sm"><i class="fa fa-facebook fa-fw"></i></a>-->
 <!--            <a href="#" class="btn btn-info btn-sm"><i class="fa fa-twitter fa-fw"></i></a>-->
-            <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-windows fa-fw"></i><span class="icon">Log In</span></a>
+<!--            <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-windows fa-fw"></i><span class="icon">Log In</span></a>-->
 <!--            <a href="#" class="btn btn-danger btn-sm">-->
 <!--                <i class="fa fa-google"></i></a>-->
             <a id="gSignInWrapper">

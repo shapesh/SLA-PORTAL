@@ -249,7 +249,7 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
             <div class="text-center social-btn">
                 <!--            <a href="" class="btn btn-primary btn-sm"><i class="fa fa-facebook fa-fw"></i></a>-->
                 <!--            <a href="#" class="btn btn-info btn-sm"><i class="fa fa-twitter fa-fw"></i></a>-->
-                <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-windows fa-fw"></i><span class="icon">Log In</span></a>
+<!--                <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-windows fa-fw"></i><span class="icon">Log In</span></a>-->
                 <!--            <a href="#" class="btn btn-danger btn-sm">-->
                 <!--                <i class="fa fa-google"></i></a>-->
                 <a id="gSignInWrapper">
