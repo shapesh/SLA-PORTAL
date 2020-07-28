@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+#      database:
+#        container_name: sla-db
+##        image:   postgres:11
+#        build:
+#          context: ./eloquent
+#        volumes:
+#          - dbdata:/var/lib/postgresql/data
+#        networks:
+#          backend:
+#            aliases:
+#              - db
+
+
+  #    redis:
+  #      image: redis:alpine
+  #      command: redis-server --appendonly yes --appendfsync always --save 900 1 --save 300 10 --save 60 1000
+  #      volumes:
+  #        - redis:/data
+  #      restart: always
+  #      container_name: redis
+
+  #  The Application
+      application:
+        build:
+          context: '.'
+        container_name: sla-portal
+        environment:
+          - DB_HOST=localhost
+          - DB_DATABASE=sla-portal
+          - DB_USERNAME=postgres
+          - DB_PASSWORD=postgres
+          - DB_PORT=5432
+        volumes:
+          - .:/var/www/html
+        ports:
+          - 8520:80
+        networks:
+          backend:
+            aliases:
+              - app
+
+networks:
+  backend:
+volumes:
+  dbdata:
+  redis:
+  db:
