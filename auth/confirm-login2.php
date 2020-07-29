@@ -10,7 +10,7 @@ if ($conn === false) {
     echo "error with connection";
 //    die(print_r(sqlsrv_errors(), true)); //See why it fails
 } else {
-    echo "Connected!";
+//    echo "Connected!";
 // Now we check if the data was submitted, isset() function will check if the data exists.
     if (!isset($_POST['email'], $_POST['password'])) {
         // Could not get the data that should have been sent.

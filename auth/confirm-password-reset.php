@@ -11,7 +11,7 @@ if ($conn === false) {
 //    die(print_r(sqlsrv_errors(), true)); //See why it fails
 } else {
 //    var_dump($_GET['email']);
-    echo "Connected!";
+//    echo "Connected!";
     //check the password and confirm password match
     if ($_POST['password'] !== $_POST['confirm_password']) {
         exit('Passwords do not match!');

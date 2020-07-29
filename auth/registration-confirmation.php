@@ -2,7 +2,7 @@
 $host = 'localhost';
 $username = 'postgres';
 $password = 'postgres';
-$dbname = 'sla-portal';
+$dbname = 'slaportal';
 //Establishes the connection
 $conn = new PDO("pgsql:host=$host dbname=$dbname user=$username password=$password");
 //Test Connection
@@ -10,7 +10,7 @@ if ($conn === false) {
     echo "error with connection";
 //    die(print_r(sqlsrv_errors(), true)); //See why it fails
 } else {
-    echo "Connected!";
+//    echo "Connected!";
 
   if (!isset($_GET['token'])) {
     // How did you get here?

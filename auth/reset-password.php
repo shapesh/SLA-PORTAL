@@ -2,7 +2,7 @@
 $host = 'localhost';
 $username = 'postgres';
 $password = 'postgres';
-$dbname = 'sla-portal';
+$dbname = 'slaportal';
 //Establishes the connection
 $conn = new PDO("pgsql:host=$host dbname=$dbname user=$username password=$password");
 //Test Connection

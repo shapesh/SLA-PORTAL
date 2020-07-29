@@ -2,7 +2,7 @@
 $host = 'localhost';
 $username = 'postgres';
 $password = 'postgres';
-$dbname = 'sla-portal';
+$dbname = 'slaportal';
 //Establishes the connection
 $conn = new PDO("pgsql:host=$host dbname=$dbname user=$username password=$password");
 //Test Connection
@@ -10,7 +10,7 @@ if ($conn === false) {
     echo "error with connection";
 //    die(print_r(sqlsrv_errors(), true)); //See why it fails
     } else {
-    echo "Connected!";
+//    echo "Connected!";
     // Now we check if the data was submitted, isset() function will check if the data exists.
     if (!isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['phone_number'], $_POST['password'], $_POST['confirm_password'])) {
         // Could not get the data that should have been sent.
