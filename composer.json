@@ -10,7 +10,8 @@
         "facebook/graph-sdk" : "^5.7",
         "illuminate/database": "^7.19",
 
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "phpmailer/phpmailer": "^6.1"
     },
     "autoload": {
         "classmap": [

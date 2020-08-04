@@ -2,7 +2,7 @@
 $host = 'localhost';
 $username = 'postgres';
 $password = 'postgres';
-$dbname = 'slaportal';
+$dbname = 'sla-portal';
 //Establishes the connection
 $conn = new PDO("pgsql:host=$host dbname=$dbname user=$username password=$password");
 //Test Connection
@@ -83,6 +83,7 @@ if ($conn === false) {
                             <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
             mail($_POST['email'], $subject, $message, $headers);
             echo 'Please check your email to activate your account!';
+//            require 'registration-mail.php';
 
     }
 
