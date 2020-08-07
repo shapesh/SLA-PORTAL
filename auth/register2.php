@@ -162,6 +162,44 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
              padding: 0 .1875rem;
              background: #fefefe;
          }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            /*height: 20%; !* Full height *!*/
+            overflow: auto; /* Enable scroll if needed */
+            margin: 30px auto;
+            /*background-color: rgb(0,0,0); !* Fallback color *!*/
+            /*background-color: rgba(0,0,0,0.4); !* Black w/ opacity *!*/
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
     </style>
 </head>
@@ -169,10 +207,24 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=579529672749062&autoLogAppEvents=1" nonce="n7C8AjzC"></script>
-
+<script>
+    function myFunction() {
+        window.open("    https://www.facebook.com/v7.0/dialog/oauth?app_id=579529672749062&auth_type&cbt=1596630363358&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df275fc8bd7da018%26domain%3Dswitchlink.com%26origin%3Dhttps%253A%252F%252Fswitchlink.com%252Ff1dc2894680bfa4%26relation%3Dopener&client_id=579529672749062&display=popup&domain=switchlink.com&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Fswitchlink.com%2Fauth%2Fregister2.php&force_confirmation=false&id=f2a201ec27b9c18&locale=en_GB&logger_id=e722ad31-322c-442c-b6b3-efc1db2521bc&origin=1&plugin_prepare=true&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df13c11a861fe2ac%26domain%3Dswitchlink.com%26origin%3Dhttps%253A%252F%252Fswitchlink.com%252Ff1dc2894680bfa4%26relation%3Dopener.parent%26frame%3Df2a201ec27b9c18&ref=LoginButton&response_type=signed_request%2Ctoken%2Cgraph_domain&scope&sdk=joey&size=%7B%22width%22%3A600%2C%22height%22%3A679%7D&url=dialog%2Foauth&version=v7.0&_rdc=1&_rdr\n",
+            "_blank", "resizable=no,width=400,height=400, position=fixed");
+        // myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+    }
+</script>
+<div id="regModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Please check your email to activate your account!</p>
+    </div>
+</div>
 <div class="login-form">
-    <form action="registration.php" method="post" autocomplete="off">
+    <form action="registration.php" method="post" id="regForm" autocomplete="off">
         <fieldset class="fieldset">
+
             <legend class="text">Register New Account</legend>
             <!--        <h4 class="text-center">Login to Switchlink Africa</h4>-->
 
@@ -228,7 +280,7 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                         <i class="fa fa-lock"></i>
                     </span>
                     </div>
-                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                    <input type="password" class="form-control" name="password" placeholder="Password" id="pass-id" required="required">
                 </div>
             </div>
             <div class="form-group">
@@ -238,12 +290,14 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                         <i class="fa fa-lock"></i>
                     </span>
                     </div>
-                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" id="confirm-pass-id" required="required">
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-success btn-block login-btn">Sign in</button>
+                <button type="submit" class="btn btn-success btn-block login-btn" id="sign-in-id">Sign in</button>
             </div>
+
+
             <div class="or-seperator"><i>or</i></div>
             <p class="hint-text">Sign in With</p>
             <div class="text-center social-btn">
@@ -256,11 +310,15 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                     <!--                            <span class="label">Sign in with:</span>-->
                     <div id="customBtn" class="btn btn-danger btn-sm customGPlusSignIn">
 
-                        <i class="fa fa-google fa-fw"></i><span class="icon">Log In</span>
+                        <i class="fa fa-google fa-fw"></i>
+<!--                        <span class="icon">Log In</span>-->
                         <!--                    <span class="buttonText">Google</span>-->
                     </div>
                 </a>
-                <a class="fb-login-button btn btn-primary btn-sm" data-size="small" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></a>
+<!--                <a></a>-->
+                <a id="customBtn" class="btn btn-primary btn-sm login-btn-facebook" onclick="myFunction()">
+                    <i class="fa fa-facebook fa-fw"></i></a>
+<!--                <a class="fb-login-button " data-size="small" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></a>-->
                 <!--            <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>-->
 
                 <!--                <span class="icon"></span></a>-->
@@ -273,7 +331,8 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                     $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
                     //echo $url;
                     echo "<a href='$url' class='btn btn-info btn-sm icon'>
-                                <i class='fa fa-twitter fa-fw'></i><span>Log In</span></a>";
+                                <i class='fa fa-twitter fa-fw'></i>
+                                </a>";
 
                 } else {
                     $access_token = $_SESSION['access_token'];
@@ -306,8 +365,59 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
 <!--            </div>-->
         </fieldset>
     </form>
+
     <div class="hint-text">Already have an account? <a href="../auth/login2.php" class="hint-text">Login Here!</a></div>
+    <!-- The regModal -->
+
 </div>
-<script>startApp();</script>
+
+<script>startApp();
+</script>
+<script>
+//     function emailFunction() {
+//         alert("Please check your email to activate your account!");
+// }
+    $('#regForm').submit(function(e){
+        e.preventDefault();
+        let pass = $('#pass-id').val();
+        let confirmPass = $('#confirm-pass-id').val();
+        if (pass !== confirmPass) {
+            alert("Passwords do not match.");
+            return false;
+        }
+
+        let regEmailModal = document.getElementById("regModal");
+        let signInBtn = document.getElementById("sign-in-id");
+        // Get the <span> element that closes the modal
+        let span = document.getElementsByClassName("close")[0];
+
+        $.ajax({
+            url: '/auth/registration.php',
+            type: 'post',
+            data:$('#regForm').serialize(),
+            success:function(){
+                if (pass.length < 5 || pass.length > 15){
+                    alert('Password must be between 5 and 15 characters long!')
+                }else
+                // regEmailModal.style.display = "block";
+                alert("Please check your email to activate your account!");
+
+                // Whatever you want to do after the form is successfully submitted
+            }
+        });
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            regEmailModal.style.display = "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target === regEmailModal) {
+                regEmailModal.style.display = "none";
+            }
+        }
+
+    });
+</script>
+
 </body>
 </html>

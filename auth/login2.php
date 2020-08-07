@@ -173,6 +173,13 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
 <body>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=579529672749062&autoLogAppEvents=1" nonce="n7C8AjzC"></script>
+<script>
+    function myFunction() {
+        window.open("    https://www.facebook.com/v7.0/dialog/oauth?app_id=579529672749062&auth_type&cbt=1596630363358&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df275fc8bd7da018%26domain%3Dswitchlink.com%26origin%3Dhttps%253A%252F%252Fswitchlink.com%252Ff1dc2894680bfa4%26relation%3Dopener&client_id=579529672749062&display=popup&domain=switchlink.com&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Fswitchlink.com%2Fauth%2Fregister2.php&force_confirmation=false&id=f2a201ec27b9c18&locale=en_GB&logger_id=e722ad31-322c-442c-b6b3-efc1db2521bc&origin=1&plugin_prepare=true&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df13c11a861fe2ac%26domain%3Dswitchlink.com%26origin%3Dhttps%253A%252F%252Fswitchlink.com%252Ff1dc2894680bfa4%26relation%3Dopener.parent%26frame%3Df2a201ec27b9c18&ref=LoginButton&response_type=signed_request%2Ctoken%2Cgraph_domain&scope&sdk=joey&size=%7B%22width%22%3A600%2C%22height%22%3A679%7D&url=dialog%2Foauth&version=v7.0&_rdc=1&_rdr\n",
+            "_blank", "resizable=no,width=400,height=400, position=fixed");
+        // myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+    }
+</script>
 <div class="login-form">
     <form action="confirm-login2.php" method="post" autocomplete="off">
         <fieldset class="fieldset">
@@ -217,11 +224,14 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                 <!--                            <span class="label">Sign in with:</span>-->
                 <div id="customBtn" class="btn btn-danger btn-sm customGPlusSignIn">
 
-                    <i class="fa fa-google fa-fw"></i><span class="icon">Log In</span>
+                    <i class="fa fa-google fa-fw"></i>
+<!--                    <span class="icon">Log In</span>-->
 <!--                    <span class="buttonText">Google</span>-->
                 </div>
             </a>
-            <a class="fb-login-button btn btn-primary btn-sm" data-size="small" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></a>
+            <a id="customBtn" class="btn btn-primary btn-sm login-btn-facebook" onclick="myFunction()">
+                <i class="fa fa-facebook fa-fw"></i></a>
+<!--            <a class="fb-login-button btn btn-primary btn-sm" data-size="small" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></a>-->
 <!--            <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>-->
 
             <!--                <span class="icon"></span></a>-->
@@ -234,7 +244,7 @@ define('OAUTH_CALLBACK', 'http://switchlink.com/'); // your app callback URL i.e
                 $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
                 //echo $url;
                 echo "<a href='$url' class='btn btn-info btn-sm icon'>
-                                <i class='fa fa-twitter fa-fw'></i><span>Log In</span></a>";
+                                <i class='fa fa-twitter fa-fw'></i></a>";
 
             } else {
                 $access_token = $_SESSION['access_token'];
