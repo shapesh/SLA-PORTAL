@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $username = 'postgres';
-$password = 'postgres';
+$password = 'qwerty';
 $dbname = 'sla-portal';
 //Establishes the connection
 $conn = new PDO("pgsql:host=$host dbname=$dbname user=$username password=$password");
@@ -40,7 +40,7 @@ if ($conn === false) {
         exit('Either username or password is incorrect!');
 
     } elseif ($userDets->confirm_reg && password_verify($_POST['password'], $userDets->password)){
-                header('Location: http://switchlink.com/switchlink-dashboard/dashboard.html');
+                header('Location: http://127.0.0.1/sla-portal/switchlink-dashboard/dashboard.html');
             }
 }
 

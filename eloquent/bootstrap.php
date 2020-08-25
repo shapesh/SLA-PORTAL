@@ -21,7 +21,7 @@ $capsule->addConnection([
 
     "username" => "postgres",
 
-    "password" => "postgres"
+    "password" => "qwerty"
 
 ]);
 

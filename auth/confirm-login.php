@@ -1,5 +1,5 @@
 <?php
-$serverName = "SLA-DEV-005\SQLEXPRESS"; //Hostname/IP,...
+$serverName = "127.0.0.1"; //Hostname/IP,...
 $connectionOptions = array(
     "Database" => "sla-portal",
     "Uid" => "",
